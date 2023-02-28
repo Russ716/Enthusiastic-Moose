@@ -8,6 +8,10 @@ Console.WriteLine();
 MooseSays("H I, I'M  E N T H U S I A S T I C !");
 MooseSays("I really am enthusiastic.");
 
+// Ask a question
+bool isTrue = MooseAsks("Is Canada real?");
+Console.WriteLine(isTrue);
+
 void MooseSays(string message)
 {
     Console.WriteLine($@"
@@ -38,4 +42,26 @@ void MooseSays(string message)
                       \ \'._  ` '_.'
                        `^^` `^^^`
     ");
+}
+bool MooseAsks(string question)
+{ //^ bool is going to need True or False returned at the end. 
+    Console.Write($"{question} (Y/N): ");
+    //^ Console Log the question fed to this bool function, as a string, above. 
+    string answer = Console.ReadLine().ToLower();
+    // ^ declare a string variable, answer, and read the next line of characters, converting them to lower case
+    while (answer != "y" && answer != "n")
+    { //^ If the user answer isn't Y, y, N, or n: try again. 
+        Console.Write($"{question} (Y/N): ");
+        answer = Console.ReadLine().ToLower();
+        //^ write the question, and read the user's input, converted to lower case. 
+    }
+
+    if (answer == "y")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
